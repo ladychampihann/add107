@@ -17,7 +17,7 @@ import UIKit
 let failGrade = 59
 
 // Here I have defined a variable using the var keyword as your test score changes.
-var testScore: Int = 79 // change this number to add different scores and declare the data type as an Interger
+var testScore: Int = 81 // change this number to add different scores and declare the data type as an Interger
 
 // Using if else statements print the grade
 if testScore > 80 {
@@ -34,7 +34,7 @@ if testScore > 80 {
 let passingGrade = 70
 
 // Here I have changed the variable again
-testScore = 70 //change it to less than 70 to see the else statment print
+testScore = 60 //change it to less than 70 to see the else statment print
 
 // Using a if statement to print the comment below
 if testScore > passingGrade {
