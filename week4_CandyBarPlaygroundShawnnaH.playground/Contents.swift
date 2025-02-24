@@ -53,6 +53,7 @@ let totalPercentTiger = Double(soldByGroupTiger) / Double(totalCandyBarsSold) * 
 let totalPercentPurpleRain = Double(soldByGroupPurpleRain) / Double(totalCandyBarsSold) * 100
 let totalPercent = totalPercentTiger + totalPercentPurpleRain
 
+
 // Candy Bars Remaining using the Remainder Operator
 let totalCandyBarsLeft = targetTotalCandyBars % totalCandyBarsSold //
 
