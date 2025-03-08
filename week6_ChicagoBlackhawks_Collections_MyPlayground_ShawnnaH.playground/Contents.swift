@@ -1,5 +1,4 @@
 import UIKit
-
 //Week 6 Critical Thinking Lab: The Chicago Blackhawks
 
 //Week 6 Objectives:
@@ -9,6 +8,9 @@ import UIKit
 //Source: https://www.nhl.com/blackhawks/roster
 
 //Create a dictionary of team members using their number as the key value
+// To simplify the processs I learned you can can use Tuples for multiple values in the dictionary.
+
+//Dictionary of players with jersey number as key and name as value per assignment instructions
 let blackhawksRoster: [Int: String] =
   [89: "Andreas Athanasiou", //aligned one by one for readability
    98: "Connor Bedard",
@@ -38,66 +40,113 @@ let blackhawksRoster: [Int: String] =
   ]
 
 //Create as many other arrays as needed to store the rest of the info
-var playerAges: [Int] = [
+//TODO is there a way to connect a unordered dictionary to multiple arrays..how to do this the right way?
+
+//Added an Array of playerNumbers
+let playerNumber: [Int] = [
+    89, 98, 59, 28, 16, 8, 17, 23, 77, 95, 91, 73, 84, 15, 86, 78, 46, 38, 44, 25, 5, 72, 30, 34, 40
+]
+
+//Add Array of playerName
+let playerName: [String] = ["Andreas Athanasiou", "Connor Bedard", "Tyler Bertuzzi", "Colton Dach", "Jason Dickinson", "Ryan Donato", "Nick Foligno", "Philipp Kurashev", "Patrick Maroon", "Ilya Mikheyev", "Frank Nazar", "Lukas Reichel", "Landon Slaggert", "Craig Smith", "Teuvo Teravainen", "TJ Brodie", "Louis Crevier", "Ethan Del Mastro", "Wyatt Kaiser", "Alec Martinez", "Connor Murphy", "Alex Vlasic", "Spencer Knight", "Petr Mrazek", "Arvid Soderblom"
+]
+
+//Array of player's ages ordered
+let playerAges: [Int] = [
     30, 19, 30, 22, 29, 28, 37, 25, 36, 30, 21, 22, 22, 35, 30, 34, 23, 22, 37, 31, 23, 23, 23, 33, 25
 ]
 
-var playerCountries: [String] = [
+//Array of player's countries ordered in the same way as the dictionary
+let playerCountries: [String] = [
     "CAN", "CAN", "CAN", "CAN", "CAN", "USA", "USA", "CHE", "USA", "RUS", "USA", "DEU", "USA", "USA", "FIN",
     "CAN", "CAN", "CAN", "USA", "USA", "USA", "USA", "USA", "USA", "CZE", "SWE"
 ]
 
-var playerHeightInches: [Int] = [
+//Array of player's height in inches ordered in the same way as the dictionary
+let playerHeightInches: [Int] = [
     74, 70, 74, 76, 74, 72, 72, 72, 75, 74, 70, 72, 72, 73, 71, 74, 80, 76, 72, 73, 76, 78, 75, 74, 75
 ]
 
-var playerBirthdayMonth: [Int] = [
+//Array of player's birth month ordered in same way as dictionary.
+let playerBirthdayMonth: [Int] = [
     8, 7, 2, 1, 7, 4, 10, 10, 4, 10, 1, 5, 6, 9, 9, 6, 5, 1, 7, 7, 3, 6, 4, 2, 8
 ]
-//let playerBirthdays: [Int: String] = [
-//    89: "8/6/1994", 98: "7/17/2005", 59: "2/24/1995", 28: "1/4/2003", 16: "7/4/1995",
-//    8: "4/9/1996", 17: "10/31/1987", 23: "10/12/1999", 77: "4/23/1988", 95: "10/10/1994",
-//    91: "1/14/2004", 73: "5/17/2002", 84: "6/25/2002", 15: "9/5/1989", 86: "9/11/1994",
-//    78: "6/7/1990", 46: "5/4/2001", 38: "1/15/2003", 44: "7/31/2002", 25: "7/26/1987",
-//    5: "3/26/1993", 72: "6/5/2001", 30: "4/19/2001", 34: "2/14/1992", 40: "8/19/1999"
-//]
-//
-//let playerAges: [Int: Int] = [
-//    89: 30, 98: 19, 59: 30, 28: 22, 16: 29, 8: 28, 17: 37, 23: 25, 77: 36, 95: 30,
-//    91: 21, 73: 22, 84: 22, 15: 35, 86: 30, 78: 34, 46: 23, 38: 22, 44: 22, 25: 37,
-//    5: 31, 72: 23, 30: 23, 34: 33, 40: 25
-//]
-//
-//let playerCountries: [Int: String] = [
-//    89: "CAN", 98: "CAN", 59: "CAN", 28: "CAN", 16: "CAN", 8: "USA", 17: "USA", 23: "CHE",
-//    77: "USA", 95: "RUS", 91: "USA", 73: "DEU", 84: "USA", 15: "USA", 86: "FIN", 78: "CAN",
-//    46: "CAN", 38: "CAN", 44: "USA", 25: "USA", 5: "USA", 72: "USA", 30: "USA", 34: "CZE",
-//    40: "SWE"
-//]
-//
-//let playerHeightsInches: [Int: Int] = [
-//    89: 74, 98: 70, 59: 74, 28: 76, 16: 74, 8: 72, 17: 72, 23: 72, 77: 75, 95: 74,
-//    91: 70, 73: 72, 84: 72, 15: 73, 86: 71, 78: 74, 46: 80, 38: 76, 44: 72, 25: 73,
-//    5: 76, 72: 78, 30: 75, 34: 74, 40: 75
-//]
+
+//Created an Empty Array for playerData
+var playerData: [(playerNumber: Int, playerName: String, playerAge: Int, playerCountries: String, playerHeight: Int,playerBirthMonth: Int)] = []
+
+
 //Using control flow statements do the following;
+// Loop through the arrays and add each player's data as a tuple to the playerData array
+for index in 0..<playerNumber.count { // range 0...
+    let playerTuple = (
+        playerNumber: playerNumber[index],
+        playerName: playerName[index],
+        playerAge: playerAges[index],
+        playerCountries: playerCountries[index],
+        playerHeight: playerHeightInches[index],
+        playerBirthMonth: playerBirthdayMonth[index]
+    )
+    
+    playerData.append(playerTuple)
+}
+
+//print(playerData)
 
 //Create a list of players sorted by age
-var playersSortedByAge = playerAges.sort()
+//
+let playerSortedbyAge = playerData.sorted { $0.playerAge < $1.playerAge }
 
 
-
-
+for player in playerSortedbyAge {
+    print("\(player.playerName) is \(player.playerAge)")
+}
 
 
 //Create a list of players sorted by country
+let playersSortedCountry = playerData.sorted { $0.playerCountries < $1.playerCountries }
+//
+for player in playersSortedCountry {
+    print("Player \(player.playerNumber) is from \(player.playerCountries)")
+}
+
+
 
 //Calculate the average age of the players
+//Create Variable for total TeamAge
+var totalTeamAge = 0
+for age in playerAges {
+    totalTeamAge += age // using += to add all the ages from the Array
+}
+playerAges.count // .count method to count number of players
+
+let averageAgePlayer = (totalTeamAge/playerAges.count) // divide by number of players
+print("The average age of the players on the team is ",averageAgePlayer)
 
 //Calculate the average height of the players
+var totalTeamHeight = 0
+for height in playerHeightInches {
+    totalTeamHeight += height
+}
+
+let averageHeightPlayer = (totalTeamHeight/playerHeightInches.count)
+print("The average height of the players on the team in inches is",averageHeightPlayer)
+
+// Also you can get max and min number from an array using .max or .min
+playerHeightInches.max() // get max number from array
+playerHeightInches.min() // get min number from array
+
 
 //Determine the month in which most of the players birthday falls
+var birthdayMonthCount: [Int: Int] = [:]
+
+for month in playerBirthdayMonth {
+    birthdayMonthCount[month, default: 0] += 1
+}
+
+if let mostFrequentMonth = birthdayMonthCount.max(by: { $0.value < $1.value }) {
+    print("Month \(mostFrequentMonth.key) has the most birthdays with \(mostFrequentMonth.value) total birthdays that month.")
+}
 
 //Upload a video explaining your working code
-
 //Upload your code to your Github repository and provide me a link
