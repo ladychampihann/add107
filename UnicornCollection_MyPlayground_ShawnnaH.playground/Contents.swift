@@ -73,6 +73,7 @@ for style in myUnicornStyleSorted {
     print(style)
 }
 
+
 //Here I made an array of my Unicorns and the colors of each one in the collection
 //I listed verticaly for improved readability
 var myUnicornColor: [String] = [
