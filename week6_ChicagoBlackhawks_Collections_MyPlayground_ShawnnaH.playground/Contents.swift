@@ -1,6 +1,6 @@
 import UIKit
 
-//Critical Thinking Lab: The Chicago Blackhawks
+//Week 6 Critical Thinking Lab: The Chicago Blackhawks
 
 //Week 6 Objectives:
 //The objectives are to understand what Arrays are and how they are used, comprehend what Dictionaries are and some of their benefits, and grasp what Tuples are and when they might be used. This will be followed by completing individual labs on Arrays, Dictionaries, and Tuples. After that, a lab combining all three topics will be completed, and finally, a Critical Thinking Exercise will be performed to apply the new knowledge of Collections in practical scenarios.
