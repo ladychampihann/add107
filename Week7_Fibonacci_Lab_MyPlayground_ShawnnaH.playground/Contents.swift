@@ -28,12 +28,26 @@ import UIKit
 //-------------------------------------------------------------------
 
 //STEP 1) Write a function that calculates and displays all the Fibonacci numbers from 0 to 1000
+func calcFibonacciTo1000 () {
+    var fibonacciArray: [Int] = [] //Initialize an empty array
+    let fibonacciFirstNum = 0
+    let fibonacciSecondNum = 1
+    
+// Add or Append the numbers to array
+    fibonacciArray.append(fibonacciFirstNum)
+    fibonacciArray.append(fibonacciSecondNum)
+    
+    
+    
+    
+}
 
 
+//Display the Fibonacci numbers from 0 to 1000
 
 
-
-
+// Call the function
+calcFibonacciTo1000()
 
 //STEP 2) Record a Panopto video of you demoing your working code
 //Source:
