@@ -29,29 +29,41 @@ import UIKit
 
 
 //STEP 1) Write a function that calculates and displays all the Fibonacci numbers from 0 to 1000
+print("Knock Knock..Who's There?")
 func calcFibonacciTo1000() {
     var fibonacciSequenceArray: [Int] = [] // Initialize an empty array to store the Fibonacci sequence
     var fibonacciFirstNum = 0 // First Fibonacci number
-    var fibonacciNextNum = 1 // Second Fibonacci number
+    var fibonacciSecondNum = 1 // Second Fibonacci number
     
     // Add the first two Fibonacci numbers to the array
-    fibonacciSequenceArray += [fibonacciFirstNum, fibonacciNextNum] // Array now contains [0, 1]
+    fibonacciSequenceArray += [fibonacciFirstNum, fibonacciSecondNum] // Array now contains [0, 1]
     
-    // Calculate and append Fibonacci numbers until 1000
+    // Initialize the next Fibonacci number Third Fibonacci number
+    var fibonacciNextNum = fibonacciFirstNum + fibonacciSecondNum
+
+    // Use the While Loop to Calculate and append Fibonacci numbers until 1000
     while fibonacciNextNum < 1001 {
-        // Append the second Fibonacci number (it will be the current Fibonacci number in the loop)
-        fibonacciSequenceArray += [fibonacciNextNum]
+        
+        // Now Append the next Fibonacci number to the array
+        fibonacciSequenceArray += [fibonacciNextNum] // The While Loop continues until 1000
         
         // Update the first and second Fibonacci numbers in one step
-        (fibonacciFirstNum, fibonacciNextNum) = (fibonacciNextNum, fibonacciFirstNum + fibonacciNextNum)
+        (fibonacciFirstNum, fibonacciSecondNum) = (fibonacciSecondNum, fibonacciNextNum)
+        
+        // Calculate the next Fibonacci number
+        fibonacciNextNum = fibonacciFirstNum + fibonacciSecondNum
+        print("Looping Please Wait....")
     }
+
+print("\nKnock Knock.. Who's There?")
+print("Aren't you glad I stopped Looping... or this joke would go on forever!")
+print("Let's get the results printed...")
     
     // Display the Fibonacci Sequence Array
-    print("Fibonacci Sequence Array:")
+    print("\nFibonacci Sequence Array:")
     print(fibonacciSequenceArray)
-    
 }
 
-//STEP 2) Record a Panopto video of you demoing your working code
-//Source:
+// Call the function
+calcFibonacciTo1000()
 
