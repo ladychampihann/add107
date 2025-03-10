@@ -29,7 +29,6 @@ import UIKit
 
 
 //STEP 1) Write a function that calculates and displays all the Fibonacci numbers from 0 to 1000
-print("Knock Knock..Who's There?")
 func calcFibonacciTo1000() {
     var fibonacciSequenceArray: [Int] = [] // Initialize an empty array to store the Fibonacci sequence
     var fibonacciFirstNum = 0 // First Fibonacci number
@@ -40,7 +39,7 @@ func calcFibonacciTo1000() {
     
     // Initialize the next Fibonacci number Third Fibonacci number
     var fibonacciNextNum = fibonacciFirstNum + fibonacciSecondNum
-
+print("Knock Knock..Who's There?")
     // Use the While Loop to Calculate and append Fibonacci numbers until 1000
     while fibonacciNextNum < 1001 {
         
