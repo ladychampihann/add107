@@ -15,7 +15,6 @@ enum DriveTrain: String {
 enum PriusTrim: String {
     case trimLE = "LE"
     case trimXLE = "XLE"
-    case trimSE = "SE"
     case nightshadeEdition = "Nightshade Edition"
     case limited = "Limited"
     
