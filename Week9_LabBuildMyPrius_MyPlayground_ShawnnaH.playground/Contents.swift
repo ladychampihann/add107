@@ -60,7 +60,8 @@ enum SuperRareAddOns: String {
     case swiftKeychain = "Swift Keychain"
     case swiftVinylWrap = "Swift Vinyl Wrap"
 }
-//Create the structure to build your prius using struct which is the blueprint of the order
+//Create the structure or struct or blueprint using Properties to build your prius aka drive, trim, etc.
+// TODO should the struct be private? When should it be and when should it not be? Real world examples? 
 struct BuildYourPrius {
     let drive: DriveTrain
     let trim: PriusTrim
@@ -97,7 +98,7 @@ let mypriusorder = BuildYourPrius(
 class PriusOrdersTracker {
     private var orders: [BuildYourPrius] = [] // the list is private and can only be accessed by the methods inside PriusOrdersTracker
 
-    // Method to the order using a storeOrder func
+    // Method to store the order using a storeOrder func. Methods are functions associated with an instance of a class or structure.
     func storeOrder(order: BuildYourPrius) {
         orders.append(order) //.append to append the order
 //        print("Congrats! .Your 🚗 Prius order has been confirmed!") //I decided not to use this
