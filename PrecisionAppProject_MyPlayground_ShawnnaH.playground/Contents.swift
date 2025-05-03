@@ -1,13 +1,48 @@
 
 import SwiftUI
+import Foundation
+
 
 // Sprint 1 - Precision Lead App - Final Project
 // Welcome Greeting
 let welcomeGreeting = "Welcome to the Precision Lead App!"
-print(welcomeGreeting)
+//print(welcomeGreeting)
+
+
+//FEATURE 1: Team Member List – Add and manage player details and assign roles.
+
+
+
+//FEATURE 2: Game Day Quotes – Daily motivational messages for inspiration.
+
+
+//FEATURE 3: Victory Log/Notebook – A simple journal with the ability to add, update, and delete
+
+class NotesManager {
+    let notesID = UUID()
+    var notes: [String] = []
+}
+
+func addNote
+
+func updateNote
+
+func hideNote
+
+func deleteNote
+
+
+
+//FEATURE 4: Task/To-Do List – Assign tasks to member with a completion tracker
+
+enum TeamPlayerRoles
+{
+    case 
+}
 
 // Precision Lead - Game Day Quotes Feature
 // Quotes Array
+
 let gameDayQuotes = [
     "\"The only way to do great work is to love what you do.\" - Steve Jobs",
     "\"Nothing is impossible. The word itself says 'I'm possible!'\" - Audrey Hepburn",
@@ -25,7 +60,7 @@ let gameDayQuotes = [
     ]
 
 // Display Random Quote from the Array
-print(gameDayQuotes.randomElement() ?? "No quotes found")
+//print(gameDayQuotes.randomElement() ?? "No quotes found")
 
 // Warm-Up Timer
 

@@ -123,7 +123,7 @@ struct LearnMoreScreen: View {
                 .navigationBarHidden(false) // Ensures navigation bar shows (and back button is available)
 
             }
-        }
+        }8
     }
 }
 //-------------------------------------------------------------
