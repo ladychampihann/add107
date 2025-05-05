@@ -1,20 +1,47 @@
 
 import SwiftUI
 import Foundation
-import SQLite3
+// TODO: Add SQLite3 import and implement local database logic for storing user data (e.g., Team Member Lists, User Profiles) in later stages of the app.
+//import SQLite3
 
+// MARK: - PROJECT HEADER - PRECISION LEAD
+// FINAL PROJECT - WELCOME TO PRECISION LEAD - POWERED BY SHAWNNA HANN (@LADYCHAMPIHANN)
+// -------------------------------------------------------------------------------------------------------------
+/* BRIEF SUMMARY:
+Precision Lead (Beta) v.1.0 is a simple leadership app for players/team members and coaches/team managers
+to organize teams, add and edit notes, assign tasks to members, generate motivational quotes with a click,
+and access a simple in app team tools such as a stopwatch and countdown timer.
+ */
+/* OBJECTIVES:
+1) APPLY MY NEWLY ACQUIRED SWIFT PROGRAMMING SKILLS TO DEVELOP A FUNCTIONAL AND ENGAGING APP
+2) DEMONSTRATE MY UNDERSTANDING OF CORE SWIFT CONCEPTS COVERED IN MASTERING SWIFT 5.3 SIXTH EDITION BY JON HOFFMANN
+USE MARK: - TO HIGHLIGHT CONCEPTS OR FEATURES
+    A) Variables (var) and Constants (let),
+    B) Strings and Operators,
+    C) Optional Types and Optional Chaining,
+    D) Collections: Arrays ([]), Dictionaries ([:]), Sets,
+    E) Control Flow: Conditional Statements (if, guard, switch),
+    F) Loops: for-in, while, case with where,
+    G) Control Transfer Statements: continue, break, fallthrough,
+    H) Functions (func),
+    I) Enumerations (enum),
+    J) Classes (class), Structures (struct), Inheritance,
+    K) Protocols (protocol),
+    L) Properties and Methods,
+    M) Property Wrappers (@propertyWrapper).
+USE TODO: AS A REMINDER TO COMPLETE A TASK LATER
+USE FIXME: TO NOTE IF SOMETHING IS BROKEN
+*/
 
-// FINAL PROJECT - WELCOME TO PRECISION LEAD
-// BRIEF SUMMARY:
-
-// LOGIN SCREEN - WELCOME TO PRECISION LEAD-------------------------------------------------------------------------------------------
-// GOAL: Design functional pass through buttons as I currently don't have knowledge how to set up users.
+// MARK: - LOGIN SCREEN
+// -------------------------------------------------------------------------------------------------------------
+// GOALS: Design functional pass through buttons as I currently don't have knowledge how to set up users.
 
 // Standard Welcome Greeting
 //let welcomeGreeting = "Welcome to the Precision Lead App!"
 //print(welcomeGreeting)
 
-// Fun Welocme Greeting
+// Fun Welocome Greeting
 let welcomeGreeting = "Welcome to the Precision Lead App!"
 let border = String(repeating: "*", count: welcomeGreeting.count + 6)
 
@@ -24,9 +51,9 @@ print(border)
 
 // Precision Lead Logo
 
-// Login Button
+// Let's Get Started - Button
 
-// Learn More Button
+// Learn More - Button
 
 // Possible User Struct for SQLite implementation.
 struct User: Identifiable {
@@ -42,22 +69,23 @@ struct User: Identifiable {
     var updatedAt: Date
 }
 
-// HOME SCREEN DASHBOARD - PRECISION LEAD----------------------------------------------------------------------------------------------------
+// MARK: - HOME DASHBOARD SCREEN
+// -------------------------------------------------------------------------------------------------------------
 // GOALS: Design functional buttons for the core features
 
-// My Team - Button
+// TEAM HUB - Button
 
-// Motivation - Button
+// GAME DAY QUOTE - Button
 
-// Victory Log - Button
+// VICTORY LOG - Button
 
-// Task Tracker - Button
+// TASK MANAGER - Button
 
-// Time Tools - Button (Stopwatch or Timer)
+// STOPWATCH & TIMER - Button
 
-
-// FEATURE 1: TEAM MEMBER LIST --------------------------------------------------------------------------------------------------------
-// KEY GOALS:
+// MARK: - FEATURE 1: TEAM HUB - TEAM MEMBER LIST
+// -------------------------------------------------------------------------------------------------------------
+// GOALS:
 // -Add/Edit/Delete Member Details (Name, Contact, Photo, RoleID, AssignedTeamID)
 // -Add/View Assigned Team
 // -CRUD Member Details (Create, Read, Update, Delete)
@@ -155,7 +183,7 @@ class TeamManager {
         if membersInTeam.isEmpty {
             print("⚠️No Team Members Found for this Team⚠️: \(teamId)")
         } else {
-            print("\nMembers of Team: \(teams[teamId] ?? "Unknown Team")")
+            print("\nMembers of: \(teams[teamId] ?? "Unknown Team")")
             for member in membersInTeam {
                 print("""
                 - \(member.memberFirstName) \(member.memberLastName) (\(member.memberRole.rawValue))
@@ -175,7 +203,7 @@ let teacherTeamId = UUID()
 let studentTeamId = UUID()
 let tutorTeamId = UUID()
 
-// Appling use of Dictionary to define multiple Teams for Testing
+// Applying use of Dictionary to define multiple Teams for Testing
 let teams: [UUID: String] = [
     swiftProgrammingTeamId: "Swift Programing Team",
     teacherTeamId: "MCC Teacher Team",
@@ -283,12 +311,16 @@ teamManager.listMember(byTeam: teacherTeamId)
 teamManager.listMember(byTeam: studentTeamId)
 // List Members of the Tutor Team
 teamManager.listMember(byTeam: tutorTeamId)
+print("◆◆◆◆◆◆◆◆◆◆◆◆◆◆◆◆◆◆◆◆◆◆◆◆◆◆◆◆◆◆◆◆◆◆◆◆◆◆◆◆◆◆")
 
+// MARK: - FEATURE 2: GAME DAY QUOTES
+// -------------------------------------------------------------------------------------------------------------
+//Daily motivational messages for inspiration
+//TODO: Figure out real world implementation probably uses SQLite? or learn how to generate with AI
 
-
-//FEATURE 2: Game Day Quotes – Daily motivational messages for inspiration.
-
-// Quotes Array
+// MARK: ORIGINAL IDEA
+// Using a simple Array but not practical in real world apps.
+print("\n🔥ORIGINAL IDEA FOR GAME DAY QUOTES GENERATOR (.randomElement())🔥")
 let gameDayQuotes = [
     "\"The only way to do great work is to love what you do.\" - Steve Jobs",
     "\"Nothing is impossible. The word itself says 'I'm possible!'\" - Audrey Hepburn",
@@ -304,11 +336,154 @@ let gameDayQuotes = [
     "\"No one ever drowned in sweat.\" - Lou Holtz",
     "\"Coming together is a beginning. Keeping together is progress. Working together is success.\" - Henry Ford"
     ]
-
-// Display Random Quote from the Array
+// Generate Random Quote from the Array using .randomElement()
 print(gameDayQuotes.randomElement() ?? "No quotes found")
 
-//FEATURE 3: Victory Log/Notebook – A simple journal with the ability to add, update, and delete
+
+// MARK: NEXT IDEA
+// Define Quote Categories with Enumerations and Case
+// TODO: May need to adjust categories as the app progresses.
+print("\n🔥NEXT IDEA FOR GAME DAY QUOTES GENERATOR🔥")
+// Create enum for QuoteCategories
+enum QuoteCategory: String, CaseIterable {
+    case inspirational = "Inspirational"
+    case motivational = "Motivational"
+    case funny = "Funny"
+    case wisdom = "Wisdom"
+    case teamwork = "Teamwork"
+    case leadership = "Leadership"
+    case success = "Success"
+    case comeback = "Comeback"
+}
+
+// Create a Quote Struct with UUID for SQLite mindset
+struct Quote: Identifiable {
+    let id = UUID() // will need a unique id if you use SQL or something similar
+    let quoteCategory: QuoteCategory
+    let quoteText: String
+    let quoteAuthor: String
+}
+
+// Define a Class to manage the quotes array
+class GameDayQuotes {
+    // Define some useful variables
+    var quotesByCategory: [Quote] = [] // Use Quote struct = Empty Array []
+    var memberFavoriteQuote: [Quote] = []
+    var lastDisplayedQuote: Quote? // Track last quote
+    
+    // Initializer to add quotes for Testing
+    init() {
+        quotesByCategory = [
+            Quote(quoteCategory: .success, quoteText: "\"The only way to do great work is to love what you do.\"", quoteAuthor: "Steve Jobs"),
+            Quote(quoteCategory: .motivational, quoteText: "\"Winners never quit and quitters never win.\"", quoteAuthor: "Vince Lombardi"),
+            Quote(quoteCategory: .funny, quoteText: "\"I’ve missed more than 9,000 shots in my career. And that was just in practice.\"", quoteAuthor: "Inspired by MJ's quote"),
+            Quote(quoteCategory: .comeback, quoteText: "\"A champion is simply someone who did not give up when they wanted to.\"", quoteAuthor: "Tom Landry"),
+            // add more if needed
+            // added more funny quotes to test
+            Quote(quoteCategory: .funny, quoteText: "\"Baseball is ninety percent mental and the other half is physical.\"", quoteAuthor: "Yogi Berra"),
+            Quote(quoteCategory: .funny, quoteText: "\"I’m not a role model... Just because I dunk a basketball doesn’t mean I should raise your kids.\"", quoteAuthor: "Charles Barkley"),
+            Quote(quoteCategory: .funny, quoteText: "\"Me shooting 40% at the foul line is just God’s way to say nobody’s perfect.\"", quoteAuthor: "Shaquille O’Neal")
+            
+        ]
+    }
+    // Create Function to Display Random Quote from a Category
+    func displayRandomQuote(for category: QuoteCategory) {
+        // Filter quotes by the category
+        let filteredQuotes = quotesByCategory.filter { $0.quoteCategory == category }
+        // Use of a quard stament for quick exit
+        // Use of .rawValue to show text of the case
+        // Use of return to pass through if quote is found
+        guard !filteredQuotes.isEmpty else {
+            print("⚠️No Quotes Found in: \(category.rawValue) Category")
+            return
+        }
+        //
+        if let randomQuote = filteredQuotes.randomElement() {
+            print("\(category.rawValue) Category: \(randomQuote.quoteText)~ \(randomQuote.quoteAuthor)")
+        }
+    }
+    // Create Function for Favorites
+    func saveQuoteAsFavorite(_ quote: Quote) {
+        if memberFavoriteQuote.contains(where: { $0.quoteText == quote.quoteText }) {
+            print("This quote is already in your favorites.")
+        } else {
+            memberFavoriteQuote.append(quote)
+            print ("Quote Added to Favorites✅ 🎉: \(quote.quoteText) ~ \(quote.quoteAuthor)")
+        }
+    }
+    func memberFavoritesList() {
+        if memberFavoriteQuote.isEmpty {
+            print("No favorite quotes saved yet.")
+        } else {
+            print("My Favorites List:")
+            for (index, quote) in memberFavoriteQuote.enumerated() {
+                print("\(index + 1)) \(quote.quoteText) ~ \(quote.quoteAuthor)")
+            }
+        }
+    }
+}
+
+// Define a constant after class
+let quoteSelector = GameDayQuotes()
+
+// use quoteSelector to pick a random funny quote
+print("🤪 Generate Random Quote from Funny:")
+quoteSelector.displayRandomQuote(for: .funny) // will show the same quote if you don't have multiple quotes in funny category
+
+// Save a Quote to Favorites Testing
+print("\n💖 ADD TO FAVORITES 💖")
+if let lastDisplayed = quoteSelector.quotesByCategory.last {
+    quoteSelector.saveQuoteAsFavorite(lastDisplayed)
+//    quoteSelector.saveQuoteAsFavorite(lastDisplayed) // uncomment to see else statment in action
+}
+// List all favorites
+// FIXME: Fix bug to add multiple favorites.
+quoteSelector.memberFavoritesList ()
+
+// Loops through all Enum cases even if no quotes
+// Uses else statment if no quotes found in category
+print("\n💪 Generate Random Quote for Each Category (or else statment):")
+for (index, category) in QuoteCategory.allCases.enumerated() {
+    print("\(index + 1)) ", terminator: "") // adds number before quote and uses terminator to keep on same line
+    quoteSelector.displayRandomQuote(for: category)
+}
+// MARK: FEATURE 3: STOPWATCH & TIMER (&COUNTER TOOL)
+// -------------------------------------------------------------------------------------------------------------
+// MARK: FEATURE 3A: STOPWATCH
+// A simple command-line stopwatch
+print("\n FEATURE 3A: STOPWATCH")
+// Create a class to hold all the stopwatch logic
+class PrecisionStopwatch {
+    // Add properties
+    private var startTime: Date?
+    private var elapsedTime: TimeInterval = 0
+    private var timer: Timer?
+    private(set) var isRunning = false
+//TODO: Create Functions for Start, Stop, and Reset
+// Create Functions for start, stop, and reset
+//    func start()
+//    
+//    func stop()
+//    
+//    func reset()
+// Create an instance of the Stopwatch
+
+// Call the functions to use the Stopwatch
+
+
+
+
+// MARK: FEATURE 3B: COUNTDOWN TIMER
+// A simple timer tool to set, start countdown, get notified when it reaches zero, and reset.
+
+// MARK: FEATURE 3C: COUNTER TOOL
+// A simple counter tool used to count numbers with a click of a button and option to reset.
+
+
+// MARK: FEATURE 4: VICTORY LOG
+// -------------------------------------------------------------------------------------------------------------
+// A simple journal with the ability to add, update, and delete.
+// Quick game day notes
 
 //class NotesManager {
 //    let notesID = UUID()
@@ -324,17 +499,7 @@ print(gameDayQuotes.randomElement() ?? "No quotes found")
 //func deleteNote
 
 
+// MARK: FEATURE 5: TASK MANAGER
+// -------------------------------------------------------------------------------------------------------------
+// Assign tasks to member with a completion tracker
 
-//FEATURE 4: Task/To-Do List – Assign tasks to member with a completion tracker
-
-//enum TeamPlayerRoles
-//{
-//    case
-//}
-
-
-// Warm-Up Timer
-
-
-
-// Quick Game Day Notes
