@@ -79,7 +79,7 @@ struct User: Identifiable {
 
 // VICTORY LOG - Button
 
-// TASK MANAGER - Button
+// TO-DO TASK MANAGER - Button
 
 // STOPWATCH & TIMER - Button
 
@@ -499,7 +499,7 @@ class PrecisionStopwatch {
 //func deleteNote
 
 
-// MARK: FEATURE 5: TASK MANAGER
+// MARK: FEATURE 5: TO-DO TASK MANAGER
 // -------------------------------------------------------------------------------------------------------------
 // Assign tasks to member with a completion tracker
 
