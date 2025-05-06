@@ -212,7 +212,7 @@ teamManager.teams = [
     tutorTeamId: "MCC Tutor Team"
 ]
 
-// A simple print to see the dictionary printed with the id and name. Uncomment to see output. 
+// A simple print to see the dictionary printed with the id and name. Uncomment to see output.
 //for (id, name) in teamManager.teams {
 //    print("ID: \(id), Team Name: \(name)")
 //}
@@ -489,6 +489,10 @@ class PrecisionStopwatch {
 //    var isRunning: Bool
 //}
 
+
+
+// Initialize a countdown timer
+//
 
 // MARK: FEATURE 3C: COUNTER TOOL
 // A simple counter tool used to count numbers with a click of a button and option to reset.
