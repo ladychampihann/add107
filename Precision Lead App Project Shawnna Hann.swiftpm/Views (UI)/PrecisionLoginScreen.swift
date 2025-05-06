@@ -1,7 +1,5 @@
 import SwiftUI
 
-// MARK: - FEATURE: Testing Preview in Swift
-
 
 struct PrecisionLoginScreen: View {
     var body: some View {

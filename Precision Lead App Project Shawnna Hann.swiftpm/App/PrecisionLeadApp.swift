@@ -1,7 +1,7 @@
 import SwiftUI
 
 @main
-struct MyApp: App {
+struct PrecisionLeadApp: App {
     var body: some Scene {
         WindowGroup {
             // Start with the login screen

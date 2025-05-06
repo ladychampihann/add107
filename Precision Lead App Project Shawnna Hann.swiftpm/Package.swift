@@ -8,17 +8,17 @@ import PackageDescription
 import AppleProductTypes
 
 let package = Package(
-    name: "Precision Lead App Project",
+    name: "Precision Lead (beta) v0.3",
     platforms: [
         .iOS("16.0")
     ],
     products: [
         .iOSApplication(
-            name: "Precision Lead App Project",
+            name: "Precision Lead (beta) v0.3",
             targets: ["AppModule"],
             bundleIdentifier: "ladychampihann.Precision-Lead-App-Project",
             teamIdentifier: "58AH833998",
-            displayVersion: "1.0",
+            displayVersion: "0.3",
             bundleVersion: "1",
             appIcon: .asset("AppIcon"),
             accentColor: .presetColor(.red),

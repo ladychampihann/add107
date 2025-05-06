@@ -457,7 +457,7 @@ for (index, category) in QuoteCategory.allCases.enumerated() {
 // -------------------------------------------------------------------------------------------------------------
 // MARK: FEATURE 3A: STOPWATCH
 // A simple command-line stopwatch
-print("\n FEATURE 3A: STOPWATCH")
+print("\nFEATURE 3A: STOPWATCH")
 // Create a class to hold all the stopwatch logic
 class PrecisionStopwatch {
     // Add properties
