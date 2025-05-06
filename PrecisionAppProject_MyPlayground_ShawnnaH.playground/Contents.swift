@@ -57,15 +57,15 @@ print(border)
 
 // Possible User Struct for SQLite implementation.
 struct User: Identifiable {
-    var id: UUID
-    var username: String
+    let id: UUID // set as let as this shouldn't change after it is created
+    var username: String // keeping as var as people always change usernames
     var passwordHash: String
     var firstName: String
     var lastName: String
     var email: String
     var phone: String
     var dateOfBirth: Date
-    var createdAt: Date
+    let createdAt: Date // set as let as this shouldn't change after creating
     var updatedAt: Date
 }
 
@@ -81,7 +81,7 @@ struct User: Identifiable {
 
 // TO-DO TASK MANAGER - Button
 
-// STOPWATCH & TIMER - Button
+// STOPWATCH & TIMER TOOS - Button
 
 // MARK: - FEATURE 1: TEAM HUB - TEAM MEMBER LIST
 // -------------------------------------------------------------------------------------------------------------
@@ -113,7 +113,7 @@ enum TeamRole: String, CaseIterable {
 // Team Belongs to Users and contains Team Members
 struct Team: Identifiable {
     var id: UUID {teamId} // Use of Identifiable
-    var teamId: UUID // Unique ID
+    let teamId: UUID // Unique ID for the team and it should change so setting as let
     var teamName: String // text
     var teamManager: String // TODO will need to adjust depending on how users and members are set up
 }
@@ -121,12 +121,12 @@ struct Team: Identifiable {
 // Team Members who belong to a Team or Multiple Teams
 struct TeamMember: Identifiable {
     var id: UUID {memberId} // Use of Identifiable
-    var memberId: UUID // to help create unique IDs you should use import Foundation
+    let memberId: UUID // to help create unique IDs you should use import Foundation and this should never change so setting as let
     var memberFirstName: String
     var memberLastName: String
     var memberPhoneNumber: String
     var memberEmail: String
-    var memberImagePath: String // TODO will need to adjust depending on how you implement SQLite
+    var memberImagePath: String // TODO: will need to adjust depending on how you implement
     var memberRole: TeamRole // acts like a constraint and needs to be one of roles listed in TeamRole
     var assignedTeams: [UUID] // a member may be assigned to more than one team so using array to store multiple teams
     var memberDetails: String // a text box to add other details like jersey number or bio make changes in future as needed.
@@ -138,6 +138,7 @@ struct TeamMember: Identifiable {
 class TeamManager {
     // Applying use of private(set) so only the TeamManager can add or remove their team. Changes to the team go through the TeamManager you don't want all team members to be able to make changes.
     private(set) var teamMembers: [TeamMember] = []
+    var teams: [UUID: String] = [:]
     // Create function to addTeamMember
     func addTeamMember(_ newTeamMember: TeamMember) {
         teamMembers.append(newTeamMember)
@@ -194,22 +195,27 @@ class TeamManager {
     }
 }
 // Create TeamManager and Add Test Members
-// Define Constant for teamManager
+// First Initialize a new TeamManager instance and then Add Test Members
 let teamManager = TeamManager()
 
 // Define Constants for Testing Multiple Team scenarios.
-let swiftProgrammingTeamId = UUID()
+let swiftProgrammingTeamId = UUID() //should be a unique id and set as let so it doesn't change
 let teacherTeamId = UUID()
 let studentTeamId = UUID()
 let tutorTeamId = UUID()
 
-// Applying use of Dictionary to define multiple Teams for Testing
-let teams: [UUID: String] = [
+// Applying use of Dictionary to define multiple Teams for Testing and set as var as teams can be modified
+teamManager.teams = [
     swiftProgrammingTeamId: "Swift Programing Team",
     teacherTeamId: "MCC Teacher Team",
     studentTeamId: "MCC Student Team",
     tutorTeamId: "MCC Tutor Team"
 ]
+
+// A simple print to see the dictionary printed with the id and name. Uncomment to see output. 
+//for (id, name) in teamManager.teams {
+//    print("ID: \(id), Team Name: \(name)")
+//}
 
 // Create some Test Subjects and Add Team Members... :)
 // Add Team Members
@@ -459,6 +465,8 @@ class PrecisionStopwatch {
     private var elapsedTime: TimeInterval = 0
     private var timer: Timer?
     private(set) var isRunning = false
+    
+}
 //TODO: Create Functions for Start, Stop, and Reset
 // Create Functions for start, stop, and reset
 //    func start()
@@ -475,19 +483,31 @@ class PrecisionStopwatch {
 
 // MARK: FEATURE 3B: COUNTDOWN TIMER
 // A simple timer tool to set, start countdown, get notified when it reaches zero, and reset.
+//class PrecisionCountdownTimer {
+//    var targetTime: Date
+//    var elapsedTime: TimeInterval
+//    var isRunning: Bool
+//}
+
 
 // MARK: FEATURE 3C: COUNTER TOOL
 // A simple counter tool used to count numbers with a click of a button and option to reset.
-
+//class PrecisionCounterTool {
+//    var startingNumber: Int
+//    var currentNumber: Int
+//}
 
 // MARK: FEATURE 4: VICTORY LOG
 // -------------------------------------------------------------------------------------------------------------
 // A simple journal with the ability to add, update, and delete.
 // Quick game day notes
-
-//class NotesManager {
-//    let notesID = UUID()
-//    var notes: [String] = []
+struct PrecisionVictoryLog {
+    let notesID: UUID
+    var notesTitle: String
+    var notesTextBox: String
+    var createdAt: Date?
+    var updatedAt: Date?
+}
 //}
 //
 //func addNote
@@ -501,5 +521,16 @@ class PrecisionStopwatch {
 
 // MARK: FEATURE 5: TO-DO TASK MANAGER
 // -------------------------------------------------------------------------------------------------------------
-// Assign tasks to member with a completion tracker
+// Assign tasks to member with a completion tracker such as complete and not complete.
 
+struct PrecisionTaskTool {
+    let taskId: UUID
+    var taskName: String
+    var taskDescription: String
+    var isCompleted: Bool
+    var createdAt: Date?
+    var updatedAt: Date?
+    var teamMemberAssignedTo: String?
+    var dueDate: Date?
+    var pastDue: Bool
+}
